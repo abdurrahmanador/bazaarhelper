@@ -21,8 +21,8 @@ class _HomeSliderState extends State<HomeSlider> {
             enableInfiniteScroll: true,
             reverse: false,
             autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            autoPlayInterval: const Duration(seconds: 3),
+            autoPlayAnimationDuration: const Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
             enlargeCenterPage: true,
             enlargeFactor: 0.3,
@@ -40,7 +40,7 @@ class _HomeSliderState extends State<HomeSlider> {
             builder: (BuildContext context) {
               return Container(
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.symmetric(horizontal: 5.0),
+                margin: const EdgeInsets.symmetric(horizontal: 5.0),
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(imagePath),
@@ -52,14 +52,14 @@ class _HomeSliderState extends State<HomeSlider> {
           );
         }).toList(),
       ),
-      SizedBox(height: 16,),
+      const SizedBox(height: 16,),
       ValueListenableBuilder(valueListenable: _selectedSlider, builder:(context,value,_){
         List<Widget> list=[];
         for(int i=0;i<4;i++){
           list.add(Container(
             width: 10,
             height: 10,
-            margin: EdgeInsets.symmetric(horizontal: 4),
+            margin: const EdgeInsets.symmetric(horizontal: 4),
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(10),

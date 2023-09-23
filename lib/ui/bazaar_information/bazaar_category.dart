@@ -8,7 +8,7 @@ import '../bottom_nav_bar_screen.dart';
 import 'fish_market.dart';
 
 class BazaarCategory extends StatefulWidget {
-  const BazaarCategory({super.key});
+   BazaarCategory({super.key});
 
   @override
   State<BazaarCategory> createState() => _BazaarCategoryState();
@@ -29,63 +29,52 @@ class _BazaarCategoryState extends State<BazaarCategory> {
             backgroundColor: Colors.green,
             leading: IconButton(
               onPressed: () {
-                Get.to(() => BottomNavBar());
+                Get.offAll(()=>BottomNavBar());
               },
-              icon: const Icon(
+              icon:  const Icon(
                 Icons.arrow_back,
                 color: Colors.white,
               ),
             ),
-            title: Text(
+            title:  const Text(
               "Bazaar ",
               style: TextStyle(color: Colors.white),
             ),
           ),
-          body: ListView.separated(
-            itemCount: 3,
-            separatorBuilder: (context, index) => Divider(),
-            itemBuilder: (context, index) {
-              String title = "";
-              VoidCallback? onTap;
-              String imagePath = "";
+          body: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: ListView?.separated(
+              itemCount: 3,
+              separatorBuilder: (context, index) =>  const Divider(thickness: 2,),
+              itemBuilder: (context, index) {
+                String title = "";
+                VoidCallback? onTap;
+                String imagePath = "";
 
-              if (index == 0) {
-                title = "Vegetable Market";
-                imagePath = "assets/images/kb.png";
-                onTap = () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => VegetableMarket(),
-                    ),
-                  );
-                };
-              } else if (index == 1) {
-                title = "Fish Market";
-                imagePath = "assets/images/mb.png";
-                onTap = () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => FishMarket(),
-                    ),
-                  );
-                };
-              } else if (index == 2) {
-                title = "Supershop";
-                imagePath = "assets/images/sb.png";
-                onTap = () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SuperShop(),
-                    ),
-                  );
-                };
-              }
-              onTap ??= () {};
-              return CustomListTile(title: title, imagePath: imagePath, onTap: onTap);
-            },
+                if (index == 0) {
+                  title = "Vegetable Market";
+                  imagePath = "assets/images/kb.png";
+                  onTap = () {
+                    Get.to((()=> const VegetableMarket()));
+                  };
+                } else if (index == 1) {
+                  title = "Fish Market";
+                  imagePath = "assets/images/mb.png";
+                  onTap = () {
+                    Get.to((()=> const FishMarket()));
+                  };
+                } else if (index == 2) {
+                  title = "Supershop";
+                  imagePath = "assets/images/sb.png";
+                  onTap = () {
+                    Get.to((()=> const SuperShop()));
+
+                  };
+                }
+                onTap ??= () {};
+                return CustomListTile(title: title, imagePath: imagePath, onTap: onTap);
+              },
+            ),
           ),
         ),
       ),
@@ -98,7 +87,7 @@ class CustomListTile extends StatelessWidget {
   final String imagePath;
   final VoidCallback onTap;
 
-  CustomListTile({
+   CustomListTile({
     required this.title,
     required this.imagePath,
     required this.onTap,
@@ -107,19 +96,20 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      shape: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16)
+      ),
+      contentPadding:  const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       title: AspectRatio(
         aspectRatio: 16 / 9,
         child: Image.asset(
           imagePath,
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
       ),
-      trailing: Center(
-        child: Icon(
-          Icons.arrow_forward_ios,
-          color: Colors.black,
-        ),
+      trailing:  const Icon(
+        Icons.arrow_forward_ios,
+        color: Colors.black,
       ),
       onTap: onTap,
     );
@@ -141,7 +131,7 @@ class CustomListTile extends StatelessWidget {
 // import 'fish_market.dart';
 //
 // class BazaarCategory extends StatefulWidget {
-//   const BazaarCategory({super.key});
+//    BazaarCategory({super.key});
 //
 //   @override
 //   State<BazaarCategory> createState() => _BazaarCategoryState();
@@ -164,7 +154,7 @@ class CustomListTile extends StatelessWidget {
 //               onPressed: () {
 //                 Get.to(()=>BottomNavBar());
 //               },
-//               icon: const Icon(
+//               icon:  Icon(
 //                 Icons.arrow_back,
 //                 color: Colors.white,
 //               ),

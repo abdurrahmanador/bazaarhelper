@@ -20,10 +20,10 @@ class _BazaarHelperState extends State<BazaarHelper> {
     return GetMaterialApp(
       initialBinding: StateHolderBinders(),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: const SplashScreen(),
       theme: ThemeData(
         inputDecorationTheme: InputDecorationTheme(
-          contentPadding: EdgeInsets.all(16),
+          contentPadding: const EdgeInsets.all(16),
           fillColor: Colors.white70,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
@@ -40,8 +40,12 @@ class _BazaarHelperState extends State<BazaarHelper> {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green
-          )
+            backgroundColor: Colors.green,
+            elevation: 3,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15)
+            )
+          ),
         ),
       ),
     );

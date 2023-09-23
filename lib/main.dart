@@ -13,5 +13,5 @@ void main() async{
   cameras=await availableCameras();
   await SharedPreferences.getInstance(); // Initialize SharedPreferences
   await Firebase.initializeApp();
-  runApp(BazaarHelper());
+  runApp(const BazaarHelper());
 }

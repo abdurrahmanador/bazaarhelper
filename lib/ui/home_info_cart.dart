@@ -23,27 +23,27 @@ class HomeInfoCart extends StatelessWidget {
                 height: 100,
                 decoration: BoxDecoration(
                   color: Colors.greenAccent.withOpacity(0.1),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(8),
                     topRight: Radius.circular(8),
                   ),
                   image: DecorationImage(
                     // Use the provided image as the background image
-                    image: image ?? AssetImage('assets/default_image.png'),
+                    image: image ?? const AssetImage('assets/default_image.png'),
                     // You can provide a default image path
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
                     Center(
                       child: Text(
                         title,
                         maxLines: 2,
-                        style: TextStyle(
+                        style: const TextStyle(
                             overflow: TextOverflow.ellipsis,
                             fontSize: 14,
                             fontWeight: FontWeight.w500,

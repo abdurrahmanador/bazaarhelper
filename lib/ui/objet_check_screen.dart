@@ -1,4 +1,3 @@
-
 import 'package:bazaarhelper_final/state_holder_controller.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
@@ -71,33 +70,21 @@ class _ObjectCheckState extends State<ObjectCheck> {
         threshold: 0.1,
         asynch: true);
 
-    bool showSnackbar = false;
-
     result = '';
-    recognitions!.forEach((response) {
+    for (var response in recognitions!) {
       String label = response['label'];
       double confidence = response['confidence'] as double;
 
-      result += label + ' ' + confidence.toStringAsFixed(2) + '\n\n';
+      result += '$label ${confidence.toStringAsFixed(2)}\n\n';
 
 
-    });
+    }
 
     setState(() {
       result;
     });
-
     isWorking = false;
 
-    if (showSnackbar) {
-      Get.snackbar(
-        'Detected',
-        'Check this!',
-        snackPosition: SnackPosition.TOP, // Adjust the position as needed
-        duration: Duration(seconds: 2),
-        backgroundColor: Colors.green, // Customize the background color
-        colorText: Colors.white, // Customize the text color
-      );    }
   }
 
   @override
@@ -121,13 +108,13 @@ class _ObjectCheckState extends State<ObjectCheck> {
                 color: Colors.white,
               ),
             ),
-            title: Text(
+            title: const Text(
               "Food Scan",
               style: TextStyle(color: Colors.white),
             ),
           ),
           body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/images/screenbackgroun.png'),
                     fit: BoxFit.fill)),
@@ -137,18 +124,18 @@ class _ObjectCheckState extends State<ObjectCheck> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Center(child: Text("Check Your Food Quality!",style: TextStyle(
+                  const Center(child: Text("Check Your Food Quality!",style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.w500
                   ),)),
-                  Center(child: Text("Click Video Icon to start scanning!!",style: TextStyle(
+                  const Center(child: Text("Click Video Icon to start scanning!!",style: TextStyle(
                     fontSize: 16
                   ),)),
                   Stack(
                     children: [
                       Center(
                         child: Container(
-                          margin: EdgeInsets.only(top: 100),
+                          margin: const EdgeInsets.only(top: 100),
                           height: 220,
                           width: 320,
                         ),
@@ -159,14 +146,14 @@ class _ObjectCheckState extends State<ObjectCheck> {
                             initCamera();
                           },
                           child: Container(
-                            margin: EdgeInsets.only(top: 65.0),
-                            height: 275,
+                            margin: const EdgeInsets.only(top: 50.0),
+                            height: 375,
                             width: 360,
                             child: cameraImage == null
                                 ? Container(
                               height: 500,
                               width: 360,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.photo_camera_front,
                                 size: 60.0,
                                 color: Colors.pink,
@@ -184,14 +171,14 @@ class _ObjectCheckState extends State<ObjectCheck> {
                   ),
                   Center(
                     child: Container(
-                      margin: EdgeInsets.only(top: 55),
+                      margin: const EdgeInsets.only(top: 20),
                       child: SingleChildScrollView(
                         child: Text(
                           result,
-                          style: TextStyle(
-                              backgroundColor: Colors.black,
+                          style: const TextStyle(
+                              backgroundColor: Colors.white,
                               fontSize: 25.0,
-                              color: Colors.white),
+                              color: Colors.black),
                           textAlign: TextAlign.center,
                         ),
                       ),

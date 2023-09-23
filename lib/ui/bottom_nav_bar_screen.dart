@@ -24,9 +24,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
     _bottomNavController.currentSelectedIndex = 0;
   }
   final List<Widget> _screens = [
-    HomeScreen(),
-    ExpensesScreen(),
-    ObjectCheck(),
+    const HomeScreen(),
+    const ExpensesScreen(),
+    const ObjectCheck(),
     BazaarCategory()
   ];
 

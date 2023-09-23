@@ -24,9 +24,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void NavigationToBottomNavScreen() {
     Future
-        .delayed(Duration(seconds: 3))
+        .delayed(Duration(seconds: 2))
         .then((_){
-          Get.offAll(()=>BottomNavBar());
+          Get.offAll(()=>const BottomNavBar());
     });
   }
 
